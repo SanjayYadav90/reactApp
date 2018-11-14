@@ -25,7 +25,26 @@ class App extends Component {
     this.setState({
       toggleMe: !this.state.toggleMe
     })
-      console.log('i clicked!');
+    // console.log('i clicked!');
+  }
+
+
+  inputHandler = (event,id) => {
+    const userIndex = this.state.users.findIndex(
+      (u) => {
+        return u.id === id
+      }
+    );
+    const user = {
+      ...this.state.users[userIndex]
+
+    }
+    user.name = event.target.value;
+    const users = [...this.state.users];
+    users[userIndex] = user;
+    this.setState({
+      users:users
+    });
   }
 
   render() {
@@ -43,6 +62,7 @@ class App extends Component {
                   showHide = {this.state.toggleMe}
                   deleteMe={() => this.deleteHandler(index)}
                   toggleOut={() => this.toggleHandler(index)}
+                  inputValue={(event) => this.inputHandler(event,usr.id)}
                 />
               )
             }

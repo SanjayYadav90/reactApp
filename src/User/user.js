@@ -6,7 +6,7 @@ const user = (props) => {
       backgroundColor:'red',
       color:'black',
 	}
-	// var todo = props.showHide;
+	var todo = props.showHide;
 	return (
 		<div className="card">
 			<div className='container'>
@@ -19,8 +19,7 @@ const user = (props) => {
 						<button className='#' onClick={props.toggleOut}> Write! </button>
 					</div>
 					<div>
-						<input type='text' />
-						
+						<input type='text' value={props.name}  onChange={props.inputValue}/>
 					</div>
 				</h3>
 			</div>
