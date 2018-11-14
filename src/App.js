@@ -40,10 +40,11 @@ class App extends Component {
 
     }
     user.name = event.target.value;
-    const users = [...this.state.users];
-    users[userIndex] = user;
+    const newUsers = [...this.state.users];
+    // console.log(user);
+    newUsers[userIndex] = user;
     this.setState({
-      users:users
+      users:newUsers
     });
   }
 
